@@ -10,13 +10,13 @@ class BooksController extends Controller
     public function store(Request $request)
     {
         $book = Book::create($this->validateRequest($request));
-        return redirect('/books/' . $book->id);
+        return redirect($book->path());
     }
 
     public function update(Book $book, Request $request)
     {
         $book->update($this->validateRequest($request));
-        return redirect('/books/' . $book->id);
+        return redirect($book->path());
     }
 
     public function destroy(Book $book)

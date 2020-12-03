@@ -21,7 +21,7 @@ class BookReservationTest extends TestCase
         $book = Book::first();
 
         $this->assertCount(1, Book::all());
-        $response->assertRedirect('/books/' . $book->id);
+        $response->assertRedirect($book->path());
     }
 
     /** @test */
@@ -56,7 +56,7 @@ class BookReservationTest extends TestCase
 
         $book = Book::first();
 
-        $response = $this->patch('/books/' . $book->id, [
+        $response = $this->patch($book->path(), [
                 'title' => 'Novo Título',
                 'author' => 'Novo Autor'
         ]);
@@ -64,7 +64,7 @@ class BookReservationTest extends TestCase
         $this->assertEquals('Novo Título', Book::first()->title);
         $this->assertEquals('Novo Autor', Book::first()->author);
 
-        $response->assertRedirect('/books/' . $book->id);
+        $response->assertRedirect($book->fresh()->path());
     }
 
     /** @test */
@@ -80,7 +80,7 @@ class BookReservationTest extends TestCase
         $book = Book::first();
         $this->assertCount(1, Book::all());
 
-        $response = $this->delete('/books/' . $book->id);
+        $response = $this->delete($book->path());
 
         $this->assertCount(0, Book::all());
         $response->assertRedirect('/books');
