@@ -4,5 +4,5 @@ Repositório criado para estudos de Laravel com TDD, seguindo o tutorial da play
 **Com algumas alterações para Laravel 8**
 
 Link da playlist:
-(Test Driven Laravel)[https://www.youtube.com/playlist?list=PLpzy7FIRqpGAbkfdxo1MwOS9xjG3O3z1y]
+[Test Driven Laravel](https://www.youtube.com/playlist?list=PLpzy7FIRqpGAbkfdxo1MwOS9xjG3O3z1y)
 
