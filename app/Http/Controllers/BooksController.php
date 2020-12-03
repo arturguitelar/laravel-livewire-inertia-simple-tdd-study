@@ -7,19 +7,19 @@ use Illuminate\Http\Request;
 
 class BooksController extends Controller
 {
-    public function store()
+    public function store(Request $request)
     {
-        Book::create($this->validateRequest());
+        Book::create($this->validateRequest($request));
     }
 
-    public function update(Book $book)
+    public function update(Book $book, Request $request)
     {
-        $book->update($this->validateRequest());
+        $book->update($this->validateRequest($request));
     }
 
-    protected function validateRequest()
+    protected function validateRequest(Request $request)
     {
-        return request()->validate([
+        return $request->validate([
             'title' => 'required',
             'author' => 'required'
         ]);
