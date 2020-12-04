@@ -3,6 +3,7 @@
 namespace Tests\Feature;
 
 use App\Models\Author;
+use App\Models\Book;
 use Carbon\Carbon;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
@@ -28,5 +29,4 @@ class AuthorManagementTest extends TestCase
         $this->assertInstanceOf(Carbon::class, $author->first()->dob);
         $this->assertEquals('1988/14/05', $author->first()->dob->format('Y/d/m'));
     }
-
 }
