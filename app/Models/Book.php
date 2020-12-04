@@ -15,4 +15,13 @@ class Book extends Model
     {
         return '/books/' . $this->id . '-' . Str::slug($this->title);
     }
+
+    public function setAuthorIdAttribute($author)
+    {
+        // implementando dessa forma para melhor leitura
+        $author_id = Author::firstOrCreate([
+            'name' => $author,
+        ])->id;
+        $this->attributes['author_id'] = $author_id;
+    }
 }
