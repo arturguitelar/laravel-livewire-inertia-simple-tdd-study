@@ -45,6 +45,18 @@ class BookReservationTest extends TestCase
     }
 
     /** @test */
+    public function if_not_checked_out_exception_is_thrown()
+    {
+        $this->expectException(\Exception::class);
+
+        $book = Book::factory(Book::class)->create();
+        $user = User::factory(User::class)->create();
+
+        $book->checkin($user);
+    }
+
+
+    /** @test */
     public function a_user_can_checkout_a_book_twice()
     {
         $book = Book::factory(Book::class)->create();
