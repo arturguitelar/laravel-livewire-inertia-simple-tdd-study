@@ -8,7 +8,8 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Book extends Model
 {
-    // use HasFactory;
+    use HasFactory;
+
     protected $guarded = [];
 
     public function path()
@@ -23,5 +24,18 @@ class Book extends Model
             'name' => $author,
         ])->id;
         $this->attributes['author_id'] = $author_id;
+    }
+
+    public function checkout($user)
+    {
+        $this->reservations()->create([
+            'user_id' => $user->id,
+            'checked_out_at' => now(),
+        ]);
+    }
+
+    public function reservations()
+    {
+        return $this->hasMany(Reservation::class);
     }
 }
