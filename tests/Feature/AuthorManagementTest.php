@@ -11,17 +11,28 @@ use Tests\TestCase;
 
 class AuthorManagementTest extends TestCase
 {
-    use RefreshDatabase;
+    use RefreshDatabase, WithFaker;
 
+    private function data()
+    {
+        return [
+            'name' => $this->faker->name,
+            'dob' => $this->faker->date()
+        ];
+    }
     /** @test */
     public function an_author_can_be_created()
     {
         $this->withoutExceptionHandling();
 
-        $this->post('/authors', [
-            'name' => 'Nom do autor.',
-            'dob' => '05/14/1988'
-        ]);
+        // substituindo a data com o Carbon porquê, por algum motivo,
+        // o set date do faker não funciona
+        $newDate = Carbon::createFromFormat('Y/d/m', '1988/14/05')
+            ->toDateTimeString();
+
+        $this->post('/authors',
+            array_merge($this->data(),
+                ['dob' => $newDate]));
 
         $author = Author::all();
 
