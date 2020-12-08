@@ -23,3 +23,7 @@ Route::delete('books/{book}-{slug}', [BooksController::class, 'destroy']);
 Route::post('author', [AuthorController::class, 'store']);
 
 Route::post('checkout/{book}', [CheckoutBookController::class, 'store']);
+
+// Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
+//     return Inertia\Inertia::render('Dashboard');
+// })->name('dashboard');
