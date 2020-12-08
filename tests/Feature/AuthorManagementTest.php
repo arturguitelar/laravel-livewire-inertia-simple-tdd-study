@@ -18,7 +18,7 @@ class AuthorManagementTest extends TestCase
     {
         $this->withoutExceptionHandling();
 
-        $this->post('/author', [
+        $this->post('/authors', [
             'name' => 'Nom do autor.',
             'dob' => '05/14/1988'
         ]);

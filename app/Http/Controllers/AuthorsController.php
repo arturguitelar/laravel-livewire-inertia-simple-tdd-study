@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Author;
 use Illuminate\Http\Request;
 
-class AuthorController extends Controller
+class AuthorsController extends Controller
 {
     public function store(Request $request)
     {
