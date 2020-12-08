@@ -6,16 +6,17 @@ use App\Models\Author;
 use Tests\TestCase;
 use App\Models\Book;
 use Illuminate\Foundation\Testing\RefreshDatabase;
+use Illuminate\Foundation\Testing\WithFaker;
 
 class BookManagementTest extends TestCase
 {
-    use RefreshDatabase;
+    use RefreshDatabase, WithFaker;
 
     private function data()
     {
         return [
-            'title' => 'Título do Livro',
-            'author_id' => 'Autor'
+            'title' => $this->faker->title,
+            'author_id' => $this->faker->name
         ];
     }
 
