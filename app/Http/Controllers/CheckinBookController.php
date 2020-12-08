@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Book;
 use Illuminate\Support\Facades\Auth;
 
-class CheckoutBookController extends Controller
+class CheckinBookController extends Controller
 {
     public function __construct()
     {
@@ -14,7 +14,11 @@ class CheckoutBookController extends Controller
 
     public function store(Book $book)
     {
-        $user = Auth::user();
-        $book->checkout($user);
+        try {
+            $user = Auth::user();
+            $book->checkin($user);
+        } catch(\Exception $e) {
+            return response([], 404);
+        }
     }
 }
