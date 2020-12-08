@@ -2,6 +2,8 @@
 
 use App\Http\Controllers\AuthorController;
 use App\Http\Controllers\BooksController;
+use App\Http\Controllers\CheckinBookController;
+use App\Http\Controllers\CheckoutBookController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -20,3 +22,10 @@ Route::patch('books/{book}-{slug}', [BooksController::class, 'update']);
 Route::delete('books/{book}-{slug}', [BooksController::class, 'destroy']);
 
 Route::post('author', [AuthorController::class, 'store']);
+
+Route::post('checkout/{book}', [CheckoutBookController::class, 'store']);
+Route::post('checkin/{book}', [CheckinBookController::class, 'store']);
+
+// Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
+//     return Inertia\Inertia::render('Dashboard');
+// })->name('dashboard');
