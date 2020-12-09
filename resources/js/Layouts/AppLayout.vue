@@ -50,6 +50,10 @@
                                         Profile
                                     </jet-dropdown-link>
 
+                                    <jet-dropdown-link :href="route('authors.create')">
+                                        Authors
+                                    </jet-dropdown-link>
+
                                     <jet-dropdown-link :href="route('api-tokens.index')" v-if="$page.jetstream.hasApiFeatures">
                                         API Tokens
                                     </jet-dropdown-link>
@@ -140,6 +144,10 @@
                         <jet-responsive-nav-link :href="route('profile.show')" :active="route().current('profile.show')">
                             Profile
                         </jet-responsive-nav-link>
+
+                        <jet-dropdown-link :href="route('authors.create')" :active="route().current('profile.show')">
+                            Authors
+                        </jet-dropdown-link>
 
                         <jet-responsive-nav-link :href="route('api-tokens.index')" :active="route().current('api-tokens.index')" v-if="$page.jetstream.hasApiFeatures">
                             API Tokens
