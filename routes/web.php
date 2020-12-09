@@ -5,6 +5,7 @@ use App\Http\Controllers\BooksController;
 use App\Http\Controllers\CheckinBookController;
 use App\Http\Controllers\CheckoutBookController;
 use Illuminate\Support\Facades\Route;
+use Inertia\Inertia;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,15 +18,20 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::get('/', function () {
+    return view('welcome');
+});
+
 Route::post('books', [BooksController::class, 'store']);
 Route::patch('books/{book}-{slug}', [BooksController::class, 'update']);
 Route::delete('books/{book}-{slug}', [BooksController::class, 'destroy']);
 
+Route::get('authors', [AuthorsController::class, 'create'])->name('authors.create');
 Route::post('authors', [AuthorsController::class, 'store']);
 
 Route::post('checkout/{book}', [CheckoutBookController::class, 'store']);
 Route::post('checkin/{book}', [CheckinBookController::class, 'store']);
 
-// Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
-//     return Inertia\Inertia::render('Dashboard');
-// })->name('dashboard');
+Route::middleware(['auth:sanctum', 'verified'])->get('dashboard', function () {
+    return Inertia::render('Dashboard');
+})->name('dashboard');
