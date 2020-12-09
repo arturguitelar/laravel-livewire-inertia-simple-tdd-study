@@ -10,6 +10,8 @@ Porém, mesmo podendo realizar um procedimento semelhante utilizando [Laravel/UI
 
 A escolha do pacote com [Inertia](https://inertiajs.com/) foi um pouco acidental mas veio bem a calhar. Em uma das aulas da playlist está marcado "Importing Vue.js & Tailwind" e isso me influenciou a escolher essa opção de instalação, mas a verdade é que nada de Vuejs é utilizado no tutorial. *haha* Então implementei o frontend utilizando VueJs mas com as tags e classes html do tutorial pra tentar me manter fiel.
 
+Já avisando que é um projeto de estudos e deve ter alguns bugs. De fato, ele não está finalizado. Se quiser saber mais sobre minhas desventuras nesse projeto tem um [link aqui](https://arturkilldragon.wordpress.com/2020/12/09/estudo-de-tdd-criado-com-laravel-8-livewire-inertia/) onde eu explico um pouco mais.
+
 Atualmente a playlist está no [vídeo 6](https://www.youtube.com/watch?v=ntNVo9qS6qA&list=PLpzy7FIRqpGAbkfdxo1MwOS9xjG3O3z1y&index=6) e faz um certo tempo que não foi atualizada. Mesmo assim vou dar uma pausa para estudar outras coisas antes de tentar criar as outras telas do frontend.
 
 De qualquer forma, o objetivo era o entendimento sobre o processo de TDD em uma aplicação real e minhas expectativas foram atendidas.
