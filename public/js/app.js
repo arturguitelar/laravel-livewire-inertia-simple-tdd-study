@@ -3429,10 +3429,61 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {
     AppLayout: _Layouts_AppLayout__WEBPACK_IMPORTED_MODULE_0__["default"]
+  },
+  props: {
+    errors: Object
+  },
+  data: function data() {
+    return {
+      form: {
+        name: null,
+        dob: null
+      }
+    };
+  },
+  methods: {
+    submit: function submit() {
+      this.$inertia.post("/authors", this.form);
+    }
   }
 });
 
@@ -47617,7 +47668,98 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("app-layout", { attrs: { header: "Author" } }, [
-    _c("p", [_vm._v("create aqui")])
+    _c("div", { staticClass: "w-2/3 bg-gray-200 mx-auto p-6 shadow" }, [
+      _c(
+        "form",
+        {
+          staticClass: "flex flex-col items-center",
+          on: {
+            submit: function($event) {
+              $event.preventDefault()
+              return _vm.submit($event)
+            }
+          }
+        },
+        [
+          _c("h1", [_vm._v("Add New Author")]),
+          _vm._v(" "),
+          _c("div", { staticClass: "pt-4" }, [
+            _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.form.name,
+                  expression: "form.name"
+                }
+              ],
+              staticClass: "rounded px-4 py-2 w-64",
+              attrs: { type: "text", name: "name", placeholder: "Full Name" },
+              domProps: { value: _vm.form.name },
+              on: {
+                input: function($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.$set(_vm.form, "name", $event.target.value)
+                }
+              }
+            }),
+            _vm._v(" "),
+            _vm.errors.name
+              ? _c("div", { staticClass: "text-red-600 p-2" }, [
+                  _vm._v(_vm._s(_vm.errors.name))
+                ])
+              : _vm._e()
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "pt-4" }, [
+            _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.form.dob,
+                  expression: "form.dob"
+                }
+              ],
+              staticClass: "rounded px-4 py-2 w-64",
+              attrs: {
+                type: "text",
+                name: "dob",
+                placeholder: "Date of Birth"
+              },
+              domProps: { value: _vm.form.dob },
+              on: {
+                input: function($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.$set(_vm.form, "dob", $event.target.value)
+                }
+              }
+            }),
+            _vm._v(" "),
+            _vm.errors.dob
+              ? _c("div", { staticClass: "text-red-600 p-2" }, [
+                  _vm._v(_vm._s(_vm.errors.dob))
+                ])
+              : _vm._e()
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "pt-4" }, [
+            _c(
+              "button",
+              {
+                staticClass: "bg-blue-400 text-white rounded py-2 px-4",
+                attrs: { type: "submit" }
+              },
+              [_vm._v("\n                    Add\n                ")]
+            )
+          ])
+        ]
+      )
+    ])
   ])
 }
 var staticRenderFns = []

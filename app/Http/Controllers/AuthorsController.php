@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Author;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Redirect;
 use Inertia\Inertia;
 
 class AuthorsController extends Controller
@@ -16,6 +17,8 @@ class AuthorsController extends Controller
     public function store(Request $request)
     {
         Author::create($this->validateRequest($request));
+
+        return Redirect::route('dashboard');
     }
 
     protected function validateRequest(Request $request)
